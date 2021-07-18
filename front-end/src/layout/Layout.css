@@ -1,0 +1,194 @@
+/*
+//  ---Title and description---
+*/
+
+* {
+  box-sizing: border-box;
+  /*outline: 1px solid red;*/
+}
+
+.page-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.page-description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/*
+//
+//  ---"2 tables" style---
+//
+*/
+
+.column-left {
+  float: left;
+  width: 50%;
+}
+
+.column-right {
+  float:right;
+  width: 50%;
+}
+
+.dashboard {
+  width: 80%;
+  margin: auto;
+}
+
+.dashboard-title {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.dashboard-data {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/*
+//  ---Forms---
+*/
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.0rem;
+}
+
+.form-input {
+  width: 250px;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+
+.warning-message {
+  width: 250px;
+  margin: auto;
+  font-size: 0.75rem;
+  padding: 0%;
+  color: red;
+}
+
+/*
+//  ---Buttons---
+*/
+
+/* Custom "arrows" */
+.arrow {
+  border-left: 0.25rem solid black;
+  border-bottom: 0.25rem solid black;
+  width: 1rem;
+  height: 1rem;
+  margin: 1rem;
+  transform: rotate(135deg);
+}
+
+.left {
+  transform: rotate(45deg);
+}
+
+.right {
+  transform: rotate(225deg);
+}
+
+/* Overriding default button style */
+.toggle-button {
+  border: none;
+  background-color: transparent;
+}
+
+/* Review this container */
+.medium-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.medium-buttons-container .button {
+  font-size: 0.75rem;
+  background-color: rgb(93, 93, 93);
+  border-radius: 5px;
+}
+
+.medium-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.medium-buttons-container .button {
+  margin: 1rem;
+  font-size: 1.25rem;
+  border-radius: 7px;
+}
+
+.medium-buttons-container .form-submit {
+  background-color: rgb(173, 209, 173);
+}
+
+.medium-buttons-container .form-cancel {
+  background-color: rgb(200, 200, 200);
+}
+
+.small-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.small-buttons-container .button {
+  width: 35px;
+  margin: 0.5rem;
+  font-size: 0.5rem;
+  border-radius: 3px;
+}
+
+.small-buttons-container .seat {
+  background-color: rgb(173, 209, 173);
+}
+
+.small-buttons-container .edit {
+  background-color: rgb(173, 209, 173);
+}
+
+.small-buttons-container .cancel {
+  background-color: rgb(200, 200, 200);
+}
+
+.small-buttons-container .finish {
+  width: 100px;
+}
+
+/*
+//  ---Responsive design---
+*/
+
+@media (max-width: 600px) {
+  .form-input {
+    width: 60%;
+  }
+
+  .warning-message {
+    width: 60%;
+  }
+
+  .dashboard {
+    width: 80%;
+  }
+}
+
+@media (min-width: 800px) {
+  .dashboard {
+    margin: auto;
+    margin-top: 1.0rem;
+    width: 45%;
+  }
+}
+
