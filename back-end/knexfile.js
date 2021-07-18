@@ -8,10 +8,10 @@ require('dotenv').config();
 const path = require("path");
 
 const {
-  DATABASE_URL = "postgres://swxzwikzwkvwms:303f6f19f2b4bbe9f4f44ff411ca9f82ae0d9095ca6b7e7c343bbd36e344246e@ec2-52-86-25-51.compute-1.amazonaws.com:5432/d1p7htqug02cpd",
-  DATABASE_URL_DEVELOPMENT = "postgres://swxzwikzwkvwms:303f6f19f2b4bbe9f4f44ff411ca9f82ae0d9095ca6b7e7c343bbd36e344246e@ec2-52-86-25-51.compute-1.amazonaws.com:5432/d1p7htqug02cpd",
-  DATABASE_URL_TEST = "postgres://swxzwikzwkvwms:303f6f19f2b4bbe9f4f44ff411ca9f82ae0d9095ca6b7e7c343bbd36e344246e@ec2-52-86-25-51.compute-1.amazonaws.com:5432/d1p7htqug02cpd",
-  DATABASE_URL_PREVIEW = "postgres://swxzwikzwkvwms:303f6f19f2b4bbe9f4f44ff411ca9f82ae0d9095ca6b7e7c343bbd36e344246e@ec2-52-86-25-51.compute-1.amazonaws.com:5432/d1p7htqug02cpd",
+  DATABASE_URL = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
+  DATABASE_URL_DEVELOPMENT = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
+  DATABASE_URL_TEST = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
+  DATABASE_URL_PREVIEW = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
   DEBUG,
 } = process.env;
 
