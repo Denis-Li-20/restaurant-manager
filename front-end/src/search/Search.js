@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import dateReformat from "../utils/dateReformat";
+import timeReformat from "../utils/timeReformat";
 const axios = require("axios");
 
 function SearchReservations({backEndServerUrl}) {
@@ -47,9 +49,10 @@ function SearchReservations({backEndServerUrl}) {
     for (let i = 0; i < reservations.length; i++) {
       const res = reservations[i];
       resList.push(
-        <div key={i}>
-          <p>{`${res.first_name} - ${res.last_name}`}</p>
-          <p>{`${res.reservation_date} - ${res.reservation_time}`}</p>
+        <div key={i} className="search-result">
+          <p className="primary-information">{`${res.first_name} - ${res.last_name}`}</p>
+          <p className="secondary-information">{`${dateReformat(res.reservation_date).slice(0,10)}: ${timeReformat(res.reservation_time)}`}</p>
+          <p className="unimportant-information">{`${res.people} - people`}</p>
         </div>
       )
     }
@@ -59,21 +62,25 @@ function SearchReservations({backEndServerUrl}) {
 
   return (
     <div>
+
       <h1 className="page-title">Search Reservation</h1>
-      <div className="col-md-12 text-center">
-        {reservationsRender}
-      </div>
+
       <form className="form">
         <label className="form-input label">Mobile Number</label>
         <input onChange={handleChange} value={mobileNumber} name="mobile_number" 
           className="form-input" type="text" 
           placeholder="Search by number" aria-label="Search"/>
         {errorsRender}
-
       </form>
+
       <div className="medium-buttons-container">
         <button onClick={searchHandler} className="button form-submit" type="submit">Search</button>
       </div>
+
+      <div>
+        {reservationsRender}
+      </div>
+
     </div>  
   );
 }

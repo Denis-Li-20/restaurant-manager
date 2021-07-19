@@ -1,6 +1,6 @@
 function TimeReformat (time) {
-  const inconsistentTestCase = /^\d{2}:\d{2}\D{2}$/;
-  if (inconsistentTestCase.test(time)) {
+  const AMPMFormat = /^\d{2}:\d{2}\D{2}$/;
+  if (AMPMFormat.test(time)) {
     // Removing spaces
     time = time.split(" ").join("");
 
@@ -20,7 +20,7 @@ function TimeReformat (time) {
     }
     return time;
   }
-  return time;
+  return time.slice(0,5);
 }
 
 export default TimeReformat;

@@ -89,18 +89,10 @@ function NewReservation({ backEndServerUrl }) {
   const onPeopleChange = (value, previousValue) => {
     value = String(value); // arguments are of INT type
     previousValue = String(previousValue); // arguments are of INT type  
-
     if (!value) return value; // return nothing if no value
-
-    const currentValue = value.replace(/[^1-6]/g, ''); // only allows 1-6 inputs
-    const cvLength = currentValue.length; 
-
-    if (!previousValue || value.length > previousValue.length) {
-      if (cvLength < 2) return parseInt(currentValue); // return the only character/int
-      return parseInt(currentValue.slice(0,1)); // return only the first character/int
-    } else {
-      return parseInt(currentValue);
-    }
+    const currentValue = value.replace(/[^\d]/g, ''); // allows digits only
+    return parseInt(currentValue);
+    
   }
   // picking the right handler for each type of input
   const handleChange = ({target}) => {

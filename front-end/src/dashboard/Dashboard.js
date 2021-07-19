@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import timeReformat from "../utils/timeReformat";
 const axios = require("axios");
 
 function Dashboard({ backEndServerUrl }) {
@@ -97,9 +98,10 @@ function Dashboard({ backEndServerUrl }) {
       // render reservations that are NOT cancelled or finished
       if (res.status !== "cancelled" && res.status !== "finished") {
         resList.push(
-          <div key={i}>
-            <p>{`[${res.reservation_id}]: ${res.first_name} ${res.last_name}`}</p>
-            <p data-reservation-id-status={res.reservation_id}>{`${res.reservation_time} - ${res.status}`}</p>
+          <div key={i} className="dashboard-reservation">
+            <p className="primary-information">{`${res.first_name} ${res.last_name}`}</p>
+            <p className="secondary-information" data-reservation-id-status={res.reservation_id}>{`${timeReformat(res.reservation_time)} - ${res.status}`}</p>
+            <p className="unimportant-information">{`${res.people} - people`}</p>
             {reservationStatusRender}
           </div>
         )
@@ -150,7 +152,7 @@ function Dashboard({ backEndServerUrl }) {
       }
       renderElements.push(
         <div key={i}>
-          <p data-table-id-status={table.table_id}>{`${table.table_id} - ${table.table_name} - ${tableOccupied}`}</p>
+          <p data-table-id-status={table.table_id}>{`Table ${table.table_name} (${table.capacity} people): ${tableOccupied}`}</p>
           {buttons}
         </div>
       )
