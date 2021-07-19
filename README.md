@@ -39,16 +39,25 @@ End to end testing: @testing-library/jest-dom, @testing-library/react, @testing-
 ```
 Create new reservations using the web-form
 Form will auto-validate the inputs and let you know if the data is missing or incorrect
+
+![image](https://user-images.githubusercontent.com/54259324/126089108-1288fc5e-9d7b-438a-b2e4-42a9b514d6e2.png)
+
 ```diff
 + Tables
 ```
 Create new tables which could be used to seat the reservations
 Form will auto-validate the inputs and let you know if the data is missing or incorrect
+
+![image](https://user-images.githubusercontent.com/54259324/126089124-9e765444-08ce-412a-b0ac-da516760b28f.png)
+
 ```diff
 + Search
 ```
 Search reservations by full mobile number 
 Search reservations by partial mobile number
+
+![image](https://user-images.githubusercontent.com/54259324/126089161-0285ede2-8528-438a-b9c4-883487b0106b.png)
+
 ```diff
 + Dashboard
 ```
@@ -56,6 +65,8 @@ Get the list of reservations and tables for the selected date
 Switch the date by using the navigation buttons
 Manage reservations: seat reservation by selecting the table, edit the reservation, or cancel the reservation
 Manage tables: seat reservation, finish reservation
+
+![image](https://user-images.githubusercontent.com/54259324/126089049-d83404f4-28e7-4cb8-b91b-9c591737f4c0.png)
 
 ---
 
