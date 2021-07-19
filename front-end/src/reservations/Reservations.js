@@ -91,6 +91,7 @@ function NewReservation({ backEndServerUrl }) {
     previousValue = String(previousValue); // arguments are of INT type  
     if (!value) return value; // return nothing if no value
     const currentValue = value.replace(/[^\d]/g, ''); // allows digits only
+    if (currentValue === "") return "";
     return parseInt(currentValue);
     
   }
