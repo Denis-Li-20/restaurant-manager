@@ -76,9 +76,10 @@ Manage tables: seat reservation, finish reservation
 
 1. Download / Fork-Pull the repository
 2. Terminal: npm install
-3. Create Postgresql database (for instance, using free ElephantSQL.com instance)
-4. Update ./back-end/knexfile.js and ./back-end/.env database URLs
-5. Terminal: npm run start
+3. Command line: npm install concurrently
+4. Create Postgresql database (for instance, using free ElephantSQL.com instance)
+5. Update ./back-end/knexfile.js and ./back-end/.env database URLs
+6. Terminal: npm run start
 
 
 ## Database setup
@@ -90,9 +91,10 @@ Manage tables: seat reservation, finish reservation
 1. Download / Fork-Pull the repository
 2. Remove package.json and rename package_windows.json to package.json
 3. Command line: npm install
-4. Create Postgresql database (for instance, using free ElephantSQL.com instance)
-5. Update ./back-end/knexfile.js and ./back-end/.env database URLs
-6. Commad line: npm run start
+4. Command line: npm install concurrently
+5. Create Postgresql database (for instance, using free ElephantSQL.com instance)
+6. Update ./back-end/knexfile.js and ./back-end/.env database URLs
+7. Commad line: npm run start
 
 **If you want to seed a more extensive testing dataset:**
 ```diff
