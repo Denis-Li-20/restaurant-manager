@@ -20,7 +20,7 @@ module.exports = {
     client: "postgresql",
     pool: { min: 1, max: 5 },
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DATABASE_URL_DEVELOPMENT,
       ssl: { rejectUnauthorized: false },
 	},
     migrations: {
@@ -35,7 +35,7 @@ module.exports = {
     client: "postgresql",
     pool: { min: 1, max: 5 },
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DATABASE_URL_TEST,
       ssl: { rejectUnauthorized: false },
 	},
     migrations: {
@@ -50,7 +50,7 @@ module.exports = {
     client: "postgresql",
     pool: { min: 1, max: 5 },
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DATABASE_URL_PREVIEW,
       ssl: { rejectUnauthorized: false },
 	},
     migrations: {
@@ -65,7 +65,7 @@ module.exports = {
     client: "postgresql",
     pool: { min: 1, max: 5 },
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DATABASE_URL,
       ssl: { rejectUnauthorized: false },
 	},
     migrations: {
