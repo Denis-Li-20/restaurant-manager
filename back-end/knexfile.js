@@ -8,10 +8,10 @@ require('dotenv').config();
 const path = require("path");
 
 const {
-  DATABASE_URL = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
-  DATABASE_URL_DEVELOPMENT = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
-  DATABASE_URL_TEST = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
-  DATABASE_URL_PREVIEW = "postgres://htbbtwjd:jzzpdI8y__sHBU9IFPKM2_AZx4WoKELa@batyr.db.elephantsql.com/htbbtwjd",
+  DATABASE_URL = "postgres://avmoekre:DvJX30aE5IpoNrF3Wn8FGJOHtV9QHmyQ@batyr.db.elephantsql.com/avmoekre",
+  DATABASE_URL_DEVELOPMENT = "postgres://avmoekre:DvJX30aE5IpoNrF3Wn8FGJOHtV9QHmyQ@batyr.db.elephantsql.com/avmoekre",
+  DATABASE_URL_TEST = "postgres://avmoekre:DvJX30aE5IpoNrF3Wn8FGJOHtV9QHmyQ@batyr.db.elephantsql.com/avmoekre",
+  DATABASE_URL_PREVIEW = "postgres://avmoekre:DvJX30aE5IpoNrF3Wn8FGJOHtV9QHmyQ@batyr.db.elephantsql.com/avmoekre",
   DEBUG,
 } = process.env;
 

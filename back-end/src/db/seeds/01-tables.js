@@ -1,4 +1,4 @@
-
+/*
 exports.seed = function(knex) {
   return knex
     .raw("TRUNCATE TABLE tables RESTART IDENTITY CASCADE")
@@ -26,8 +26,8 @@ exports.seed = function(knex) {
       ]);
     });
 }; 
+*/
 
-/*
 // this seed is meant for Thinkful tests
 exports.seed = function(knex) {
   return knex
@@ -42,4 +42,3 @@ exports.seed = function(knex) {
       ]);
     });
 };
-*/

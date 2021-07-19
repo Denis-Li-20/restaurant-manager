@@ -1,4 +1,4 @@
-
+/*
 const { random } = require("nanoid");
 
 function getRandomInt(min, max) {
@@ -76,8 +76,8 @@ exports.seed = function (knex) {
       return knex("reservations").insert(reservations);
     });
 };
+*/
 
-/*
 //Dataset below passes all back-end tests
 exports.seed = function (knex) {
 return knex
@@ -138,4 +138,3 @@ return knex
 		]);
 	});
 }
-*/
