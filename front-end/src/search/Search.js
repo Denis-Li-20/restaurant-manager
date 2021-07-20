@@ -49,7 +49,7 @@ function SearchReservations({backEndServerUrl}) {
     for (let i = 0; i < reservations.length; i++) {
       const res = reservations[i];
       resList.push(
-        <div key={i} className="search-result">
+        <div key={res.reservation_id} className="search-result">
           <p className="primary-information">{`${res.first_name} - ${res.last_name}`}</p>
           <p className="secondary-information">{`${dateReformat(res.reservation_date).slice(0,10)}: ${timeReformat(res.reservation_time)}`}</p>
           <p className="unimportant-information">{`${res.people} - people`}</p>
@@ -61,8 +61,7 @@ function SearchReservations({backEndServerUrl}) {
   }, [reservations]);
 
   return (
-    <div>
-
+    <>
       <h1 className="page-title">Search Reservation</h1>
 
       <form className="form">
@@ -80,8 +79,7 @@ function SearchReservations({backEndServerUrl}) {
       <div>
         {reservationsRender}
       </div>
-
-    </div>  
+    </>  
   );
 }
 

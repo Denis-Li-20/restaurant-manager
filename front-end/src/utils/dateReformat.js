@@ -7,7 +7,7 @@ function DateReformat(date) {
     date = `${date.slice(4,8)}-${date.slice(0,2)}-${date.slice(2,4)}`;
     return date;
   }
-  return date;
+  return date.slice(0,10);
 }
 
 export default DateReformat;

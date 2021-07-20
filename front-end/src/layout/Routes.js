@@ -11,7 +11,6 @@ import NotFound from "./NotFound";
 
 function Routes() {
   const backEndServerUrl = "http://localhost:5000";
-
   return (
     <Switch>
 

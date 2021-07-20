@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import DateReformat from "../utils/dateReformat";
 const axios = require("axios");
 
 function Seat({ backEndServerUrl }) {
@@ -14,6 +15,7 @@ function Seat({ backEndServerUrl }) {
   // retrieving list of available tables
   useEffect(() => {
     async function getData () {
+      /*
       const getReservationUrl = `${backEndServerUrl}/reservations/${reservation_id}`;
       await axios.get(getReservationUrl).then((response) => {
         setReservation(response.data.data);
@@ -25,7 +27,48 @@ function Seat({ backEndServerUrl }) {
         setSelectedTableId(tablesResponse.filter((table) => !table.reservation_id)[0].table_id);
         setTables(tablesResponse);
       });
+      */
+      const abortController = new AbortController();
+      const getReservationUrl = `${backEndServerUrl}/reservations/${reservation_id}`;
+
+      try {
+        const resResponse = await fetch (
+          getReservationUrl, 
+          {signal: abortController.signal},
+          )
+        const reservationFromAPI = await resResponse.json();
+        setReservation(reservationFromAPI.data);
+      }
+      catch (error) {
+        if (error.name === "AbortError") {
+          console.log("Get reservation request aborted");
+        }
+        else {
+          throw error;
+        }
+      }
+
+      const getTablesUrl = `${backEndServerUrl}/tables`;
+
+      try {
+        const tablesResponse = await fetch (
+          getTablesUrl,
+          {signal: abortController.signal},
+        )
+        const tablesFromAPI = await tablesResponse.json();
+        setSelectedTableId(tablesFromAPI.data.filter((table) => !table.reservation_id)[0].table_id);
+        setTables(tablesFromAPI.data);
+      }
+      catch (error) {
+        if (error.name === "AbortError") {
+          console.log("Get tables request aborted");
+        }
+        else {
+          throw error;
+        }
+      }
     }
+
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[reservation_id]);
@@ -52,11 +95,11 @@ function Seat({ backEndServerUrl }) {
       event.preventDefault();
       const seatReservationUrl = `${backEndServerUrl}/tables/${selectedTableId}/seat`;
       await axios.put(seatReservationUrl, {data: { reservation_id: reservation_id }});
-      history.push("/dashboard");
+      history.push(`/dashboard?date=${DateReformat(reservation.reservation_date)}`);
     }
     else {
       // display error message if reservation doesn't fit the table
-      setSeatValidation(`This table can't fit ${reservation.people} people!`);
+      setSeatValidation(<p className="warning-message alert alert-danger">This table can't fit {reservation.people} people!</p>);
     }
   }
 
@@ -65,22 +108,20 @@ function Seat({ backEndServerUrl }) {
   }
 
   return (
-    <main className="container">
-      <h1 className="row justify-content-center">Seat Reservation</h1>
-      <h4 className="row justify-content-center">Available Tables</h4>
-      <div className="row">
-        <div className="col border">
-          <div className="col-md-12 text-center">
-            <select name="table_id" onChange={handleChange}>
-              {tablesOptions}
-            </select>
+    <>
+      <h1 className="page-title">Seat Reservation</h1>
+      <h4 className="page-description">Available Tables</h4>
+      <div className="form form-input">
+          <select name="table_id" onChange={handleChange}>
+            {tablesOptions}
+          </select>
+          <div style = {{ fontSize: 12, color: "red" }}>{seatValidation}</div>
+          <div className="medium-buttons-container">
             <button onClick={submitClickHandler} href={`/tables/${selectedTableId}/seat/`} 
-              type="submit" className="btn btn-secondary m-1">Submit</button>
-            <div style = {{ fontSize: 12, color: "red" }}>{seatValidation}</div>
+              type="submit" className="button form-submit">Submit</button>
           </div>
-        </div>
       </div>
-    </main>  
+    </>  
   );
 }
 
